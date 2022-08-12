@@ -2,3 +2,6 @@
 
 Slides Aulas Kakugawa:
 https://bit.ly/SDM_Noturno
+
+Slides Aulas Gustavo
+https://gustavotcustodio.github.io/sdmobile.html
