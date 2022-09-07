@@ -1,0 +1,59 @@
+<section>
+    <header>
+        <h1>Formulário de Inscrição</h1>
+    </header>
+    <hr>
+
+    <form action="">
+        <fieldset>
+            <legend>Dados pessoais</legend>
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome">
+
+            <label for="nasc">Data de nascimento</label>
+            <input type="date" name="nasc" id="nasc"
+                    min="1984-01-01" max="2000-01-01"><br><br>
+
+            <label for="cpf">CPF</label>
+            <input type="number" name="cpf" id="cpf">
+
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email">
+
+            <input type="radio" name="genero" id="Masculino">
+            <label for="masculino">Masculino</label>
+
+            <input type="radio" name="genero" id="Feminino">
+            <label for="feminino">Feminino</label>
+
+            <input type="radio" name="genero" id="Outro">
+            <label for="outro">Outro</label>
+
+            <h2>Voce possui algum tipo de deficiencia?</h2>
+
+            <input type="checkbox" value="nenhuma" name="nenhuma" id="nenhuma">
+            <label for="nenhuma">Nenhuma</label>
+
+            <input type="checkbox" value="fisica" name="fisica" id="fisica">
+            <label for="fisica">Física</label>
+
+            <input type="checkbox" value="visual" name="visual" id="visual">
+            <label for="visual">Visual</label>
+
+            <input type="checkbox" value="auditiva" name="auditiva" id="auditiva">
+            <label for="auditiva">Auditiva</label>
+            <br></br>
+
+            <label for="estado">Selecione o estado:</label>
+            <select name="estado" id="estado">
+                <option value="São Paulo">São Paulo</option>
+                <option value="Ceará">Ceará</option>
+            </select>
+        </fieldset>
+
+        <br>
+        <button type="submit">Enviar dados</button>
+        <button type="reset">Limpar</button>
+        <button type="button"></button>
+    </form>
+</section>
