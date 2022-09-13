@@ -13,3 +13,5 @@ https://ionicframework.com/docs/components
 Comandos Socket
 javac *.java
 java Servidor
+
+https://www.youtube.com/watch?v=i6dU3MPXm-U

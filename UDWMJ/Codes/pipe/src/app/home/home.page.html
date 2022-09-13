@@ -1,0 +1,100 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Boa Noite!
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div id="container">
+    <b>
+      <p>Sua nota é: {{nota}}</p>
+    </b>
+
+    <ion-card color="danger" *ngIf="nota >= 0 && nota <= 4; else recuperar">
+      <ion-card-content>
+        Voce está reprovado!
+      </ion-card-content>
+    </ion-card>
+
+    <ng-template #recuperar>
+      <ion-card color="warning" *ngIf="nota > 4 && nota <= 6; else aprovado">
+        <ion-card-content>
+          Voce está abaixo da média...
+        </ion-card-content>
+      </ion-card>
+    </ng-template>
+
+    <ng-template #aprovado>
+      <ion-card color="sucess" *ngIf="nota > 6 && nota <= 8; else honras">
+        <ion-card-content>
+          Voce passou...
+        </ion-card-content>
+      </ion-card>
+    </ng-template>
+
+    <ng-template #honras>
+      <ion-card color="primary" *ngIf="nota > 8 && nota <= 10;">
+        <ion-card-content>
+          Parabens voce atingiu a nota máxima
+        </ion-card-content>
+      </ion-card>
+    </ng-template>
+
+    <!-- 2- exemplo da diretiva "*ngFor" para exibir uma lista -->
+    <br>
+    <ion-list>
+      <ion-item *ngFor="let produto of produtos">
+        <ion-label>
+          <ion-avatar>
+            <img
+              src="https://static-wp-tor15-prd.torcedores.com/wp-content/uploads/2019/03/ps4-switch-xbox-one-1513175354388_v2_1920x1080.jpg%22%3E">
+          </ion-avatar>
+          O console {{produto.nome}} custa {{produto.preco.toLocaleString('pt-BR', { style: 'currency', currency:
+          'BRL'})}}
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <div [ngSwitch]="entrega.status">
+      <p *ngSwitchCase="'preparando'"> Preparando pedido.</p>
+      <p *ngSwitchCase="'em rota'"> Pedido á caminho.</p>
+      <p *ngSwitchCase="'finalizado'"> Pedido entregue.</p>
+      <p *ngSwitchDefault>O pedido está em ánalise...</p>
+    </div>
+
+    <p [style.color]="isBlue ? 'blue' : 'blue'">
+      zzzzzzzzzzzzzzzzzzzzzzzzzzz
+    </p>
+
+    <h2>
+      <span [class]="{'texto-vermelho': isRed}">
+        Copyright 2022 | Dispósitivos móveis
+      </span>
+    </h2>
+
+    <ion-inpunt type="text" [(ngModel)]="input" placeholder="Digite a tarefa"></ion-inpunt>
+    <ion-button (click)="inserir(input)">Inserir</ion-button>
+
+    <p>Total: {{tarefasTotais}} Concluídas: {{tarefasConcluidas}}</p>
+
+    <!-- <ul *ngFor="let tarefa of lista">
+      <li>Tarefa: {{tarefa.nome}} Concluída <input type="checkbox" [(ngModel)]="tarefa.concluido" (change)="" value="{{tarefa.concluido}}"></li>
+    </ul> -->
+
+    <!-- <ion-button (click)="limpar_tarefas()">
+      limpar tarefas
+    </ion-button> -->
+
+    <p>
+      {{meuTexto | uppercase}}
+    </p>
+
+    <p>
+      {{dinheiro | currency: 'BRL'}}
+    </p>
+
+  </div>
+</ion-content>
