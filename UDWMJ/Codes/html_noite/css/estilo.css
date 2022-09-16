@@ -1,0 +1,13 @@
+body {
+    background-color: grey;
+}
+
+h1 {
+    font-family: 'Courier New';
+    color: white;
+    margin-left: 40px;
+}
+
+p{
+    color: white;
+}
