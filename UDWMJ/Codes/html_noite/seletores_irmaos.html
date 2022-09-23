@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+        <style>
+            p + p { color: #f00; }
+
+            #conteudo h1~p {
+                margin-top: 5px;
+                background-color: slategray;
+                width: 300px;
+                height: 30px;
+                margin-left: 40px;
+            }
+        </style>
+
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>Primeiro parágrafo</p>
+        <p>Segundo parágrafo</p>
+    </div>
+
+    <hr>
+
+    <div id="conteudo" role="main">
+        <h1>Meu conteudo</h1>
+        <p>parágrafo 1</p>
+        <p>parágrafo 2</p>
+        <p>parágrafo 3</p>
+    </div>
+</body>
+</html>
