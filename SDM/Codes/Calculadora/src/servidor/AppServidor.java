@@ -25,7 +25,6 @@ public class AppServidor {
     public AppServidor(){
         try {
             server_socket = new ServerSocket(9600);
-            System.out.println("Servidor no ar ....");
         } catch (IOException ex) {
            ex.printStackTrace();
         }
@@ -34,31 +33,58 @@ public class AppServidor {
     public static void main(String[] args) {
         Requisicao requisicao = new Requisicao();
         Resposta resposta = new Resposta();
- 
-        new AppServidor();
-        if(connect()){
-            requisicao = (Requisicao)Conexao.receive(client_socket);
-            
-            switch(requisicao.getOperacao()){
-                case '+':
-                    resposta.setResultado(requisicao.getNum1() + requisicao.getNum2());
-                    resposta.setStatus(0);
-                    System.out.println("Vai fazer "+requisicao.getNum1()+" + "+requisicao.getNum2());
-                    System.out.println("E o resultado eh: "+resposta.getResultado());
-                    break;
+        
+        System.out.println("Servidor entrando no ar ....");
+        while(true){
+            new AppServidor();
+            if (connect()) {
+                requisicao = (Requisicao) Conexao.receive(client_socket);
+
+                switch (requisicao.getOperacao()) {
+                    case '+':
+                        resposta.setResultado(requisicao.getNum1() + requisicao.getNum2());
+                        resposta.setStatus(0);
+                        System.out.println("Vai fazer " + requisicao.getNum1() + " + " + requisicao.getNum2());
+                        System.out.println("E o resultado eh: " + resposta.getResultado());
+                        break;
+                    case '-':
+                        resposta.setResultado(requisicao.getNum1() - requisicao.getNum2());
+                        resposta.setStatus(0);
+                        System.out.println("REALIZANDO SUBTRACAO!!!");
+                        break;
+                    case '*':
+                        resposta.setResultado(requisicao.getNum1() * requisicao.getNum2());
+                        resposta.setStatus(0);
+                        System.out.println("REALIZANDO MULTIPLICACAO!!!");
+                        break;
+                    case '/':
+                        if(requisicao.getNum2()!=0){
+                            resposta.setResultado(requisicao.getNum1() / requisicao.getNum2());
+                            resposta.setStatus(0);
+                            System.out.println("Realiando divisao");
+                        }
+                        else{
+                            resposta.setStatus(2);
+                            System.out.println("o jumento tentou fazer divisao por zero");
+                        }
+                        break;
+                    default:
+                        resposta.setStatus(1);
+                        System.out.println("O carinha tentou fazer uma operacao que nao foi implementada!!!");
+                        break;
+                }
+                Conexao.send(client_socket, resposta);
+
+                try {
+                    server_socket.close();
+                    client_socket.close();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
-            Conexao.send(client_socket, resposta);
-            
-            try {
-                server_socket.close();
-                client_socket.close();
-            } catch (IOException ex) {
-               ex.printStackTrace();
-            }
-            
         }
     }
-    
+        
     public static boolean connect(){
         try {
             client_socket = server_socket.accept();

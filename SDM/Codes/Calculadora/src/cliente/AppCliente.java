@@ -9,9 +9,11 @@ import comum.Requisicao;
 import comum.Resposta;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.Scanner;
 /**
  *
  * @author profslpa
+ * 10.0.4.111
  */
 public class AppCliente {
     static Socket socket;
@@ -25,13 +27,51 @@ public class AppCliente {
     }
     
     public static void main(String args[]){
-        Requisicao requisicao = new Requisicao('+', 30003, 4987);
+        
         Resposta resposta = new Resposta();
-        new AppCliente();
+        boolean continuar = true;
+        Scanner in = new Scanner(System.in);
         
-        Conexao.send(socket, requisicao);
-        resposta = (Resposta)Conexao.receive(socket);
-        
-        System.out.println("O resultado eh: "+resposta.getResultado());
+        System.out.println("Calculadora distribuida");
+        do{
+            System.out.println("Digite o primeiro numero");
+            float num1 = in.nextFloat();
+            System.out.println("Digite o segundo numero");
+            float num2 = in.nextFloat();
+            System.out.println("Digite a operacao que deseja realizar");
+            System.out.println("(+)SOMA (-)SUB (*)MULT (/)DIV");
+            char operacao = in.next().charAt(0);
+            
+            Requisicao requisicao = new Requisicao(operacao, num1, num2);
+            
+            new AppCliente();
+            Conexao.send(socket, requisicao);
+            resposta = (Resposta) Conexao.receive(socket);
+            
+            switch(resposta.getStatus()){
+                case 0:
+                    System.out.println("o resultado da continha eh: "+resposta.getResultado());
+                    break;
+                case 1:
+                    System.out.println("Amiguinho, essa operacao ainda nao foi implementada");
+                    break;
+                case 2:
+                    System.out.println("Jumento, nao faca divisao por zero, vai dar pau na app");
+                    break;
+            }
+            
+            try {
+                socket.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            
+            System.out.println("Deseja continuar?? (s)im (n)ao");
+            char finalizar = in.next().charAt(0);
+            if(finalizar == 'n')
+                continuar = false;
+            
+        }while(continuar);
+
     }
 }

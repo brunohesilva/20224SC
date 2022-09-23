@@ -1,0 +1,7 @@
+{
+  "name": "rotas-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
