@@ -1,5 +1,8 @@
 --LINKS ÚTEIS--
 
+Slides José Netto
+https://drive.google.com/drive/folders/1me886YG5b5MlKURa3GE5B5P0A5kbdn-8
+
 Slides Aulas Kakugawa:
 https://bit.ly/SDM_Noturno
 
@@ -13,5 +16,3 @@ https://ionicframework.com/docs/components
 Comandos Socket
 javac *.java
 java Servidor
-
-https://www.youtube.com/watch?v=i6dU3MPXm-U
