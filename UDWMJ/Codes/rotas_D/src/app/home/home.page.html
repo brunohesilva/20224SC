@@ -12,12 +12,14 @@
       <ion-item *ngFor="let pessoa of dados">
         <ion-icon color="sucess" name="person-sharp"></ion-icon>
         <ion-label [routerLink]="['/detalhes', pessoa.id]">{{pessoa.nome}}</ion-label>
+        <ion-icon (click)="remover(pessoa.id)" color="danger" name="close-sharp"></ion-icon>
       </ion-item>
     </ion-list>
   </div>
 
   <ion-fab vertical="top" horizontal="end" slot="fixed">
-    <ion-fab-button size="small" color="sucess" (click)="exibir()">
+    <ion-fab-button size="small" color="sucess" routerLink="/novo">
+
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

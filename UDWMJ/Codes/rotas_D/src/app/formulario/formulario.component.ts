@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ModalController } from '@ionic/angular';
+import { DadosService } from '../dados.service';
 
 @Component({
   selector: 'app-formulario',
@@ -8,17 +8,32 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./formulario.component.scss'],
 })
 export class FormularioComponent implements OnInit {
+  public nome: string;
+  public telefone: string;
+  public detalhes: string;
+  public servico: DadosService;
 
-  public modalController: ModalController;
-
-  constructor(controller: ModalController) { 
-    this.modalController = controller;
+  constructor(servico: DadosService){
+    this.servico = servico
   }
 
-  async fecharModal(): Promise<void>{
-    this.modalController.dismiss();
+  ngOnInit(): void{
+
   }
 
-  ngOnInit() {}
+  voltar(): void {
+    window.history.back()
+  }
 
+  inserir(): void{
+    this.servico.salvar({
+      nome: this.nome,
+      telefone: this.telefone,
+      detalhes: this.detalhes
+    })
+
+    this.voltar()
+
+    console.log(this.servico.pessoas)
+  }
 }

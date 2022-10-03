@@ -1,8 +1,8 @@
 export default interface IPessoa {
 
-    id: number
+    id?: number
     nome: string
     telefone: string
     detalhes: string
-    
+
 }
