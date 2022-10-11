@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href=
+    "{{ url_for('static', filename='css/estilo.css') }}"
+    type="text/css">
+</head>
+<body>
+    <img src="{{ url_for('static', filename='imagens/flask.png') }}" alt="Logo do Flask">
+    <h1>HOME</h1>
+    <p>Bem vindo, {{ nome }}</p>
+</body>
+</html>
