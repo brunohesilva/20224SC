@@ -1,8 +1,8 @@
 AWS SEMINARIOS 
 
 Computação: AWS Lambda
-Armazenamento: Amazob S3 Glacier
-Banco de Dados: Amazon Redshift
+Armazenamento: Amazon S3 Glacier
+Banco de Dados: Amazon Aurora
 Elasticidade e monitoramento: CloudWatch
 
  pesquisar e detalhar o que é o serviço e como ele pode ser utilizado.
