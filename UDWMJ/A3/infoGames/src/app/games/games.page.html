@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Adicione um Game</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-input [(ngModel)]="name" placeholder="Nome"></ion-input>
+  <ion-input [(ngModel)]="rating" placeholder="Nota"></ion-input>
+  <ion-button (click)="salvar()">Salvar</ion-button>
+  <ion-button fill="clear" routerLink="/home">
+    Voltar
+  </ion-button>
+</ion-content>

@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Buscar um Game</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-input [(ngModel)]="id" placeholder="Id"></ion-input>
+  <ion-button (click)="buscarPorId(id)">Buscar</ion-button>
+  <ion-input [(ngModel)]="name" placeholder="Nome"></ion-input>
+  <ion-input [(ngModel)]="rating" placeholder="Nota"></ion-input>
+  <div id="container">
+    <ion-button fill="clear" routerLink="/home">
+      Voltar
+    </ion-button>
+  </div>
+</ion-content>

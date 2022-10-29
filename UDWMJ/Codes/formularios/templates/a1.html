@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meus formulários</title>
+    <style type="text/css">
+        form input {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        body {
+            background-color: black;
+        }
+        label {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        legend {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #envio {
+            background-color: orange;
+            width: 100%;
+        }
+        form {
+            width: 30%;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+        #nome {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prova A1</h1>
+    <form>
+        <fieldset>
+            <legend>Cadastro Empresa</legend>
+            <label for="name" id="name">Nome</label>
+            <input type="text" name="nome" id="nome"> <br>
+            <label for="name">Data de Nascimento</label>
+            <input type="date">
+            <br>
+            <label for="name">Email</label>
+            <input type="email" name="email" id="email" placeholder="email"><br>
+            <label for="name">Qual é o seu cargo?</label><br>
+            <input type="radio" name="cargo" value="Gerente">
+            <label for="gerente">Gerente</label>
+            <input type="radio" name="cargo" value="Analista">
+            <label for="analista">Analista</label>
+            <input type="radio" name="cargo" value="Estagiário">
+            <label for="outro">Estagiário</label>
+        </fieldset>
+        <input type="submit" value="Enviar" id="envio">
+    </form>
+</body>
+</html>
+
+//////
+
+<!-- b) A função do atributo action é necessário para indicar para onde os dados devem ser enviados após feita coleta de informações por meio da tag e também sendo utilizado como destino para essa informações, Já a função do method é a definição de qual método HTTP será utilizado nessa requisição para o envio desse formulário, caso não haja a presença desse método e colocado por padrão o método GET, mas vale ressaltar que método mais comum no envio de formulário para essa requisição é o POST. -->
+
+<!-- d) A principal diferença entre a tag <link> e a tag <style> e que o link serve mais como um destino para encontra a estilização que comumente atrelado ao CSS externo onde o desenvolvimento do estilo do HTML se encontra num arquivo separado para melhor desempenho da página, reutilização de código, mas caso haja um problema no com o arquivo .css a página pode não carregar e o link faz se necessário para encontrar o caminho e aplicar sua estilização, já quando tratamos da tag <style> e mais comum no método de utilização do CSS Interno e no Inline, onde não é necessário sair da pagina HTML para estilizar sua pagina muito utilizado em paginas HTML com um único arquivo onde apenas aquela pagina é afetada, fácil comunicação entre os elemento HTML e CSS, fácil para realizar testes e rudez solicitações de métodos HTTP, mas com um aumento de carregamento e como dito anteriormente só funciona naquela página onde cada elemento deve ser escrito novamente caso haja mais de uma página. -->

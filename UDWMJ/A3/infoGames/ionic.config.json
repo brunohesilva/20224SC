@@ -1,0 +1,7 @@
+{
+  "name": "infoGames",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

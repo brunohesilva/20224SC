@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Delete um Game</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container">
+    <ion-list *ngFor="let game of games">
+      <ion-item>
+        <ion-label>
+          {{game.id}} - {{game.name}} - {{game.rating}}
+        </ion-label>
+        <ion-button color="danger" (click)="remover(game.id)">X</ion-button>
+      </ion-item>
+    </ion-list>
+    <ion-button fill="clear" routerLink="/home">
+      Voltar
+    </ion-button>
+  </div>
+</ion-content>

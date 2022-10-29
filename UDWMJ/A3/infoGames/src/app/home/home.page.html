@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      InfoGames
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+
+    <ion-list *ngFor="let game of games">
+      <ion-item>
+        <ion-label>
+          Game: {{game.name}} - Nota: {{game.rating}}
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div>
+    <ion-button fill="clear" routerLink="/busca-id">
+      Buscar
+    </ion-button>
+    <ion-button fill="clear" routerLink="/games">
+      Adicionar
+    </ion-button>
+    <ion-button fill="clear" routerLink="/atualiza">
+      Atualizar
+    </ion-button>
+    <ion-button fill="clear" routerLink="/deleta">
+      Deletar
+    </ion-button>
+  </div>
+</ion-content>
+
