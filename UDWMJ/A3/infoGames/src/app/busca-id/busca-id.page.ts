@@ -39,7 +39,5 @@ export class BuscaIdPage implements OnInit {
 
     this.name = game.name;
     this.rating = game.rating;
-
-    this.voltar()
   }
 }

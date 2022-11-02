@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Resultados busca</title>
+    </head>
+    <body>
+        {% for res in resultados %}
+        <div class='post'>
+            <p>Id: {{ res[0] }}</p>
+            <p>Nome: {{ res[1] }}</p>
+        </div>
+        <hr>
+        {% endfor %}
+    </body>
+</html>
