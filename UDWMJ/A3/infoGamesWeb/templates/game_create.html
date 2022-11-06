@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+    <link rel="stylesheet" href="../static/estilo.css">
+    <div id=menu role="navigation">
+        <ul>
+            <li><a href="/">Home</a>
+                <li><a href="/read">Buscar um Game</a>
+            <li><a href="/update">Atualize um Game</a>
+            <li><a href="/delete">Delete um Game</a>
+        </ul>
+    </div>
+</head>
+<body>
+    <h1>Cadastre um Game</h1>
+    <form action="/add" method="post">
+        <input type="text" name="title" id="title" placeholder="Nome"> 
+            <br> <br>
+        <input type="text" name="platform" id="platform" placeholder="Plataforma">
+            <br> <br>
+        <input type="date" name="releaseDate" id="releaseDate" placeholder="Data de Lançamento">
+            <br> <br>
+        <input type="number" name="score" id="score" placeholder="Nota">
+            <br> <br>
+        <input type="text" name="summary" id="summary" placeholder="Resumo">
+            <br> <br>
+        <input type="number" name="price" id="price" placeholder="Preço">
+            <br> <br>
+        <button type="submit" id="botao">Save</button>
+        </form>
+        <script src="../static/mouse.js"></script>
+</body>
+</html>

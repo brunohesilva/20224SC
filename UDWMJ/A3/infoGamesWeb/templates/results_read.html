@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Game</title>
+        <link rel="stylesheet" href="../static/estilo.css">
+        <div id=menu role="navigation">
+            <ul>
+                <li><a href="/create">Cadastre um Game</a>
+                <li><a href="/read">Buscar um Game</a>
+                <li><a href="/update">Atualize um Game</a>
+                <li><a href="/delete">Delete um Game</a>
+            </ul>
+        </div>>
+    </head>
+    <body>
+        {% for res in resultados %}
+        <div class='post'>
+            <p>Id: {{ res[0] }}</p>
+            <p>Nome: {{ res[1] }}</p>
+            <p>Plataforma: {{ res[2] }}</p>
+            <p>Data de Lançamento: {{ res[3] }}</p>
+            <p>Nota: {{ res[4] }}</p>
+            <p>Resumo: {{ res[5] }}</p>
+            <p>Preço: {{ res[6] }}</p>
+        </div>
+        <hr>
+        {% endfor %}
+    </body>
+</html>

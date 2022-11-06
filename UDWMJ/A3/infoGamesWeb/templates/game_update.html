@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+    <link rel="stylesheet" href="../static/estilo.css">
+    <div id=menu role="navigation">
+        <ul>
+            <li><a href="/">Home</a>
+            <li><a href="/create">Cadastre um Game</a>
+            <li><a href="/read">Buscar um Game</a>
+            <li><a href="/delete">Delete um Game</a>
+        </ul>
+    </div>
+</head>
+
+<body>
+    <h1>Atualize</h1>
+    <form action="/gameupdate" method="POST">
+        <input type="number" name="id" placeholder="id">
+        <br> <br>
+        <input type="text" name="title" placeholder="Nome">
+        <br> <br>
+        <input type="text" name="platform" placeholder="Plataforma">
+        <br> <br>
+        <input type="date" name="releaseDate" placeholder="Data de Lançamento">
+        <br> <br>
+        <input type="number" name="score" placeholder="Nota">
+        <br> <br>
+        <input type="text" name="summary" placeholder="Resumo">
+        <br> <br>
+        <input type="number" name="price" placeholder="Preço">
+        <br> <br>
+        <input type="submit" value="Atualizar">
+    </form>
+
+</body>
+
+</html>

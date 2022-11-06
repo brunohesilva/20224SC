@@ -7,6 +7,7 @@ BANCO_DE_DADOS = './banco.db'
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
+
 def carregar_banco():
     # Verifica se o banco já foi carregado (evita a necessidade de carregar de novo)
     banco = getattr(g, '_database', None)
@@ -34,7 +35,8 @@ def index():
 def formulario_insercao():
     return render_template('formulario_insere.html')
 
-@app.route('/add', methods = ['POST',])
+
+@app.route('/add', methods=['POST', ])
 def salvar_info():
     banco = carregar_banco()
     cur = banco.cursor()
@@ -47,13 +49,14 @@ def salvar_info():
         INSERT INTO Funcionario
                (nome, idade, endereco)
         VALUES (?, ?, ?) """,
-        (nome, idade, endereco)
-    )
+                (nome, idade, endereco)
+                )
     banco.commit()
     banco.close()
     return "Nome: %s, Idade: %s, Endereço: %s" % (nome, idade, endereco)
 
-@app.route('/ver', methods = ['POST',])
+
+@app.route('/ver', methods=['POST', ])
 def ver_info():
     banco = carregar_banco()
     cur = banco.cursor()
@@ -70,9 +73,11 @@ def ver_info():
     return render_template("resultados_busca.html",
                            resultados=resultados)
 
+
 @app.route('/read')
 def formulario_busca():
     return render_template('formulario_busca.html')
+
 
 @app.route('/listarfuncionarios')
 def listar_funcionarios():
@@ -82,17 +87,19 @@ def listar_funcionarios():
     resultados = cur.execute("""
         SELECT id, nome
         FROM Funcionario """
-    ).fetchall()
+                             ).fetchall()
     banco.commit()
     banco.close()
     return render_template("resultados_busca.html",
                            resultados=resultados)
 
+
 @app.route('/update')
 def formulario_atualiza():
     return render_template('formulario_atualiza.html')
 
-@app.route('/atualizarfuncionario', methods = ['POST',])
+
+@app.route('/atualizarfuncionario', methods=['POST', ])
 def atualizar_funcionario():
     banco = carregar_banco()
     cur = banco.cursor()
@@ -112,11 +119,13 @@ def atualizar_funcionario():
     banco.close()
     return '<h1>funcionario Atualizado com Sucesso.</h1>'
 
+
 @app.route('/delete')
 def formulario_deleta():
     return render_template('formulario_deleta.html')
 
-@app.route('/deletarfuncionario', methods = ['POST',])
+
+@app.route('/deletarfuncionario', methods=['POST', ])
 def deletar_funcionario():
     banco = carregar_banco()
     cur = banco.cursor()
@@ -125,7 +134,7 @@ def deletar_funcionario():
     cur.execute("""
         DELETE FROM Funcionario
         WHERE id = ?""", (id,)
-    ).fetchall()
+                ).fetchall()
     banco.commit()
     banco.close()
     return '<h1>Funcionário Removido com Sucesso.</h1>'
