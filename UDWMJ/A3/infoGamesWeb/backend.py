@@ -26,6 +26,14 @@ def index():
     iniciar_tabela()
     return render_template('home.html')
 
+@app.route('/header')
+def header():
+    return render_template('header.html')
+
+@app.route('/img')
+def img():
+    return render_template('homeImage.jpg')
+
 @app.route('/create')
 def game_create():
     return render_template('game_create.html')
@@ -112,7 +120,7 @@ def updategame():
         ).fetchall()
     banco.commit()
     banco.close()
-    return '<h1>Game Atualizado com Sucesso.</h1>'
+    return '<h1 style="color:white;>Game Atualizado com Sucesso.</h1>'
 
 @app.route('/delete')
 def game_delete():
@@ -130,5 +138,5 @@ def delete_game():
                 ).fetchall()
     banco.commit()
     banco.close()
-    return '<h1>Game Removido com Sucesso.</h1>'
+    return '<h1 style="color:white;">Game Removido com Sucesso.</h1>'
                         

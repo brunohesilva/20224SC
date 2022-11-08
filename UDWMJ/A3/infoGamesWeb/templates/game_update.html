@@ -1,21 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <title>Update</title>
     <link rel="stylesheet" href="../static/estilo.css">
-    <div id=menu role="navigation">
-        <ul>
-            <li><a href="/">Home</a>
-            <li><a href="/create">Cadastre um Game</a>
-            <li><a href="/read">Buscar um Game</a>
-            <li><a href="/delete">Delete um Game</a>
-        </ul>
-    </div>
 </head>
 
 <body>
+    <iframe id="preview" src="/header"></iframe>
+
     <h1>Atualize</h1>
     <form action="/gameupdate" method="POST">
         <input type="number" name="id" placeholder="id">

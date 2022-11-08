@@ -7,15 +7,26 @@
     <link rel="stylesheet" href="../static/estilo.css">
 </head>
 
+
 <body>
-    <h1>HOME</h1>
+    <iframe id="preview" src="/header"></iframe>
+
+    <div class="home-text">
+        <p>
+            Este site foi criado com o intuito de simular o catálogo de uma loja de games, onde podemos realizar
+            todo o CRUD (Create, Read, Update, Delete) dos games que nós quisermos.
+        </p>
+        <p>
+            Temos ao todo 6 telas, cada uma com uma função do CRUD e utilizamos a biblioteca SQLite
+            para implementar o nosso banco de dados em SQL.
+            Em relação às linguagens de programação utilizadas, usamos o Javascript para fazermos algumas interações no
+            nosso front-end
+            e o
+            Python para o back-end do site.
+        </p>
+    </div>
+
+    <img src="../images/homeImage.jpg" alt="Caveira retrô">
 </body>
-<div id=menu role="navigation">
-    <ul>
-        <li><a href="/create">Cadastre um Game</a>
-        <li><a href="/read">Buscar um Game</a>
-        <li><a href="/update">Atualize um Game</a>
-        <li><a href="/delete">Delete um Game</a>
-    </ul>
-</div>
+
 </html>

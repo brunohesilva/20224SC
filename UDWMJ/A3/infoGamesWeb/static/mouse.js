@@ -1,18 +1,6 @@
-document.getElementById("botao").addEventListener(
-    "mouseover", mouseEmCima);
-
-document.getElementById("botao").addEventListener(
-    "mouseout", mouseFora);
-
-function mouseEmCima() {
-    let elemento = document.getElementById("botao");
-    elemento.style.cursor = "hand";
-    elemento.style.backgroundColor = "cyan";
-    elemento.innerHTML = "Mouseover";
-}
-
-function mouseFora() {
-    let elemento = document.getElementById("botao");
-    elemento.style.backgroundColor = "white";
-    elemento.innerHTML = "Mouseout";
+function preview( html )
+{
+    var doc = $("#preview")[0].contentWindow.document
+    var body = $('body',doc)
+    body.html( html );    
 }

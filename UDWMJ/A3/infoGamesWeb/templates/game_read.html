@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Read</title>
     <link rel="stylesheet" href="../static/estilo.css">
-    <div id=menu role="navigation">
-        <ul>
-            <li><a href="/">Home</a>
-                <li><a href="/create">Cadastre um Game</a>
-            <li><a href="/update">Atualize um Game</a>
-            <li><a href="/delete">Delete um Game</a>
-        </ul>
-    </div>
 </head>
-</head>
+
 <body>
+    <iframe id="preview" src="/header"></iframe>
+
     <h1>Busque um Game</h1>
     <form action="/show" method="POST">
         <fieldset id="dados">
@@ -27,4 +22,5 @@
         <button type="submit">Search</button>
     </form>
 </body>
+
 </html>
