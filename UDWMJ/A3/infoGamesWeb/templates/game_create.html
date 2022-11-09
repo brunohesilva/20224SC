@@ -8,10 +8,10 @@
 </head>
 
 <body>
-    <iframe id="preview" src="/header"></iframe>
+    {% include "header.html" %}
 
     <h1>Cadastre um Game</h1>
-    <form action="/add" method="post">
+    <form action="/add" name="formulario" action="#" method="post" onsubmit="mensagem()">
         <input type="text" name="title" id="title" placeholder="Nome">
         <br> <br>
         <input type="text" name="platform" id="platform" placeholder="Plataforma">
@@ -24,8 +24,22 @@
         <br> <br>
         <input type="number" name="price" id="price" placeholder="Preço">
         <br> <br>
-        <button type="submit" id="botao">Save</button>
+        <button type="submit" name="enviar" id="botao">Save</button>
     </form>
 </body>
+
+
+<script>
+    function mensagem() {
+        var titulo = document.forms['formulario']['title'].value;
+        if (titulo == "" || titulo == undefined) {
+            alert("Campo nome inválido!");
+            return false;
+        } else{
+            alert("jogo cadastrado");
+            return true;
+        }
+    }
+</script>
 
 </html>

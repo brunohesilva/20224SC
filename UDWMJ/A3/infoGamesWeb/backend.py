@@ -1,6 +1,9 @@
 import sqlite3
 from flask import Flask, request, render_template
 from flask import g
+import imgkit
+
+# imgkit.from_file('home.html', 'homeImage.jpg')
 
 BANCO_DE_DADOS = './banco.db'
 
@@ -26,13 +29,11 @@ def index():
     iniciar_tabela()
     return render_template('home.html')
 
+
 @app.route('/header')
 def header():
     return render_template('header.html')
 
-@app.route('/img')
-def img():
-    return render_template('homeImage.jpg')
 
 @app.route('/create')
 def game_create():
@@ -42,7 +43,7 @@ def game_create():
 def save_info():
     banco = carregar_banco()
     cur = banco.cursor()
-
+    
     title = request.form["title"]
     platform = request.form["platform"]
     releaseDate = request.form["releaseDate"]
@@ -58,7 +59,8 @@ def save_info():
                 )
     banco.commit()
     banco.close()
-    return "Nome: %s, Plataforma: %s, Data de Lançamento: %s, Nota: %s, Resumo: %s, Preço: %s" % (title, platform, releaseDate, score, summary, price)
+    "Nome: %s, Plataforma: %s, Data de Lançamento: %s, Nota: %s, Resumo: %s, Preço: %s" % (title, platform, releaseDate, score, summary, price)
+    return render_template("home.html")
 
 @app.route('/show', methods=['POST', ])
 def show_info():
@@ -70,7 +72,7 @@ def show_info():
         SELECT id, title, platform, releaseDate, score, summary, price
         FROM Game
         WHERE id = ?
-        """, (id)
+        """, (id,)
     ).fetchall()
     banco.commit()
     banco.close()
@@ -120,7 +122,7 @@ def updategame():
         ).fetchall()
     banco.commit()
     banco.close()
-    return '<h1 style="color:white;>Game Atualizado com Sucesso.</h1>'
+    return '<h1 style="color:white;">Game Atualizado com Sucesso.</h1>'
 
 @app.route('/delete')
 def game_delete():
@@ -138,5 +140,7 @@ def delete_game():
                 ).fetchall()
     banco.commit()
     banco.close()
-    return '<h1 style="color:white;">Game Removido com Sucesso.</h1>'
-                        
+    return '<h1 style="color:white; text-align:center;">Game Removido com Sucesso.</h1>'
+
+
+ 
