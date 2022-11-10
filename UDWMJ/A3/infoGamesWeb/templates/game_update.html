@@ -31,4 +31,27 @@
 
 </body>
 
+<script>
+    function mensagem() {
+        var titulo = document.forms['formulario']['title'].value;
+        var plataforma = document.forms['formulario']['platform'].value;
+        var datadelancamento = document.forms['formulario']['releaseDate'].value;
+        var pontuacao = document.forms['formulario']['score'].value;
+        var preco = document.forms['formulario']['price'].value;
+        
+        if (titulo == "" || titulo == undefined) {
+            alert("Campo nome inválido!");
+        } else if(plataforma == "" || plataforma == undefined){
+            alert("Campo plataforma inválido!");
+        } else if(datadelancamento == "" || datadelancamento == undefined){
+            alert("Campo data de lançamento inválido!");
+        } else if(pontuacao == "" || pontuacao == undefined || pontuacao < 0){
+            alert("Campo pontuação inválido!");
+        } else if(preco == "" || preco == undefined || preco < 0){
+            alert("Campo preço inválido!");
+        } else{
+            alert("Jogo atualizado com sucesso!");
+        }
+    }
+</script>
 </html>

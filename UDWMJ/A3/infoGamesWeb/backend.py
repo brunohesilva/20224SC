@@ -1,9 +1,6 @@
 import sqlite3
 from flask import Flask, request, render_template
 from flask import g
-import imgkit
-
-# imgkit.from_file('home.html', 'homeImage.jpg')
 
 BANCO_DE_DADOS = './banco.db'
 
@@ -122,7 +119,7 @@ def updategame():
         ).fetchall()
     banco.commit()
     banco.close()
-    return '<h1 style="color:white;">Game Atualizado com Sucesso.</h1>'
+    return render_template("home.html")
 
 @app.route('/delete')
 def game_delete():
@@ -140,7 +137,6 @@ def delete_game():
                 ).fetchall()
     banco.commit()
     banco.close()
-    return '<h1 style="color:white; text-align:center;">Game Removido com Sucesso.</h1>'
-
+    return render_template("home.html")
 
  
