@@ -4,7 +4,7 @@ Slides José Netto
 https://drive.google.com/drive/folders/1me886YG5b5MlKURa3GE5B5P0A5kbdn-8
 
 Slides Aulas Kakugawa:
-https://bit.ly/SDM_Noturno
+https://bit.ly/UAM_SDM_Noturno
 
 Slides Aulas Gustavo
 https://gustavotcustodio.github.io/sdmobile.html
