@@ -11,7 +11,7 @@
     {% include "header.html" %}
 
     <h1>Atualize</h1>
-    <form action="/gameupdate" method="POST">
+    <form action="/gameupdate" name="formulario" action="#" method="POST" onsubmit="mensagem()">
         <input type="number" name="id" placeholder="id">
         <br> <br>
         <input type="text" name="title" placeholder="Nome">
@@ -52,6 +52,6 @@
         } else{
             alert("Jogo atualizado com sucesso!");
         }
-    }
+    }   
 </script>
 </html>

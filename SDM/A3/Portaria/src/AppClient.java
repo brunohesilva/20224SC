@@ -1,13 +1,14 @@
 
 import java.io.Serializable;
 import java.rmi.Naming;
+import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Scanner;
 
-public class AppClient {
+public class AppClient implements Serializable {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws RemoteException {
         try {
 
             Registro registro = (Registro) Naming.lookup("rmi://localhost:1099/Portaria");
@@ -54,7 +55,23 @@ public class AppClient {
                     case 3:
                         System.out.print("Qual o número de identificação ? ");
                         int mIdNo = input.nextInt();
-                        registro.update(mIdNo, input);
+
+                        if (registro.find(mIdNo)) {
+
+                            System.out.print("Digite o novo Id do morador");
+                            int novoId = input.nextInt();
+                            
+                            System.out.print("Digite o novo contato do morador");
+                            int novoContato = input.nextInt();
+
+                            System.out.print("Digite o novo nome do morador");
+                            String novoNome = input.next();
+
+                            
+                            registro.update(mIdNo, novoId, novoNome, novoContato);
+                        } else {
+                            System.out.println("Morador não encontrado nos Registros");
+                        }
                         break;
 
                     case 4:
@@ -67,7 +84,7 @@ public class AppClient {
                         break;
 
                     case 5:
-                        registro.toString();
+                        registro.display();
                         break;
 
                     case 9:
@@ -81,6 +98,7 @@ public class AppClient {
                         break;
 
                 }
+
             } while (option != 9);
 
         } catch (Exception e) {

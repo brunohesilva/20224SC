@@ -63,28 +63,19 @@ public class RegistroImp extends UnicastRemoteObject implements Registro, Serial
     }
 
     @Override
-    public void update(int id, Scanner input) throws RemoteException {
-        if (find(id)) {
-            Morador mor = findMorador(id);
+    public void update(int id, int novoId, String novoNome, int novoContato) throws RemoteException {
 
-            System.out.print("Qual o novo IdNumero do Morador?");
-            int IdNumero = input.nextInt();
+        for (Morador morador : list) {
+            if (morador.getIdNumero() == id) {
 
-            System.out.print("Qual o novo Numéro de Contato do Morador?");
-            int NumeroContato = input.nextInt();
-            input.nextLine();
+                morador.setIdNumero(novoId);
 
-            System.out.print("Qual o novo Nome do Morador?");
-            String Nome = input.nextLine();
+                morador.setNome(novoNome);
 
-            mor.setIdNumero(IdNumero);
-            mor.setNome(Nome);
-            mor.setNumeroContato(NumeroContato);
+                morador.setNumeroContato(novoContato);
 
-            System.out.println("Registro do Morador atualizado com sucesso!");
-
-        } else {
-            System.out.println("Morador não encontrado nos Registros");
+                System.out.println("Registro do Morador atualizado com sucesso!");
+            }
         }
     }
 
@@ -92,6 +83,7 @@ public class RegistroImp extends UnicastRemoteObject implements Registro, Serial
     public void display() throws RemoteException {
         if (list.isEmpty()) {
             System.out.println("Não há registros na lista\n");
+        } else {
             for (Morador morador : list) {
                 System.out.println(morador.toString());
             }
